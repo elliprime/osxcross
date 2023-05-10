@@ -229,11 +229,11 @@ for SDK in $SDKS; do
   # libc++ headers
   if [ ! -f "$TMP/$SDK/usr/include/c++/v1/version" ]; then
     if [ -d $LIBCXXDIR1 ]; then
-      cp -rf $LIBCXXDIR1 "$TMP/$SDK/usr/include/c++"
+      rsync -a --delete $LIBCXXDIR1 "$TMP/$SDK/usr/include/c++"
     elif [ -d $LIBCXXDIR2 ]; then
-      cp -rf $LIBCXXDIR2 "$TMP/$SDK/usr/include/c++"
+      rsync -a --delete $LIBCXXDIR2 "$TMP/$SDK/usr/include/c++"
     elif [ -d $LIBCXXDIR3 ]; then
-      cp -rf $LIBCXXDIR3 "$TMP/$SDK/usr/include/c++"
+      rsync -a --delete $LIBCXXDIR3 "$TMP/$SDK/usr/include/c++"
     fi
   fi
 
