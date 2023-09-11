@@ -11,6 +11,8 @@ pushd "${0%/*}" &>/dev/null
 
 source tools/tools.sh
 
+export CPLUS_INCLUDE_PATH=
+
 if [ $SDK_VERSION ]; then
   echo "SDK VERSION set in environment variable: $SDK_VERSION"
 else

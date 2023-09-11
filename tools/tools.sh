@@ -482,11 +482,13 @@ function test_compiler_cxx11()
 {
   set +e
   echo -ne "testing $1 -stdlib=libc++ -std=c++11 ... "
-  $1 $2 -O2 -stdlib=libc++ -std=c++11 -Wall -o test &>/dev/null
+  $1 $2 -O2 --verbose -stdlib=libc++ -std=c++11 -Wall -o test #&>/dev/null
   if [ $? -eq 0 ]; then
     rm test
     echo "works"
   else
+    printenv
+    exit 1
     echo "failed (ignored)"
   fi
   set -e
